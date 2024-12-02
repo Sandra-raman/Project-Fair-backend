@@ -10,9 +10,11 @@ const cors=require('cors')
 const router=require('./Routes/router')
 //database connection
 const db=require('./DB/Connection')
+const ApplicationMiddlewares = require('./Middlewares/ApplicationMiddleware')
 //use cors and express
 ProjectApp.use(cors())
 ProjectApp.use(express.json())
+// ProjectApp.use(ApplicationMiddlewares)
 ProjectApp.use(router)
 //define port
 const PORT=3000 ||process.env.PORT

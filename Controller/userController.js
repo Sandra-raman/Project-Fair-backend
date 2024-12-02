@@ -35,3 +35,9 @@ exports.loginAPI = async (req, res) => {
     res.status(400).json(err);
   }
 };
+
+//addproject
+exports.AddProject = async (req, res) => {
+  console.log("Add project"); 
+  res.send("add project") 
+};
