@@ -1,4 +1,5 @@
 const users = require("../Models/userSchema");
+const jwt = require('jsonwebtoken')
 
 exports.registerAPI = async (req, res) => {
   console.log("Inside the register API");
@@ -27,7 +28,10 @@ exports.loginAPI = async (req, res) => {
   try {
     const existingUser = await users.findOne({ email, password });
     if (existingUser) {
-      res.status(200).json({ currentUser: existingUser });
+      const token=jwt.sign({userId:existingUser._id},process.env.jwtkey)
+      console.log(token);
+      
+      res.status(200).json({ currentUser: existingUser,token });
     } else {
       res.status(400).json("Incorrect Email or Password");
     }
@@ -36,8 +40,3 @@ exports.loginAPI = async (req, res) => {
   }
 };
 
-//addproject
-exports.AddProject = async (req, res) => {
-  console.log("Add project"); 
-  res.send("add project") 
-};
