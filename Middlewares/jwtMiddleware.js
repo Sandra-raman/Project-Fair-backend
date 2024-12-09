@@ -2,7 +2,7 @@ const jwt=require('jsonwebtoken')
 const jwtMiddlewares=(req,res,next)=>{
     console.log("Inside jwt Middleware");
     try {
-        const token=req.headers['authorization'].slice(7)
+        const token=req.headers['authorization'].slice(7);
         console.log(token);
         //token verify
         jwtTokenVerification=jwt.verify(token,process.env.jwtKey)

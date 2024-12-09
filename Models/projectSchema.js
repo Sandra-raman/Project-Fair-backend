@@ -23,7 +23,7 @@ const projectSchema=new mongoose.Schema({
     },
     ProjectImg:{
         type:String,
-        required:true
+        required:true,
     },
     userId:{
          type:String,
