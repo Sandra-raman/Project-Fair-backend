@@ -10,5 +10,11 @@ router.post('/api/login',userController.loginAPI)
 
 router.post('/api/addProject',jwtMiddlewares,multerMiddleware.single('ProjectImg'),projectController.AddProjectAPI)
 
+router.get('/api/getAllProject',jwtMiddlewares,projectController.getAllProjectAPI)
+
+router.get('/api/getHomeProject',projectController.getHomeProjectAPI)
+
+router.get('/api/getUserProject',jwtMiddlewares,projectController.getUserProjectAPI)
+
 //export
 module.exports=router

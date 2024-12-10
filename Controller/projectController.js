@@ -21,3 +21,35 @@ exports.AddProjectAPI=async(req,res)=>{
         res.status(408).json(err)
     }
 }
+exports.getHomeProjectAPI=async(req,res)=>{
+    try {
+        const response=await projects.find().limit(3)
+        res.status(200).json(response)
+
+    } catch (err) {
+        res.status(408).json(err)
+        
+    }
+}
+exports.getAllProjectAPI=async(req,res)=>{
+    try {
+        const response=await projects.find()
+        res.status(200).json(response)
+
+    } catch (err) {
+        res.status(408).json(err)
+        
+    }
+    
+}
+exports.getUserProjectAPI=async(req,res)=>{
+    const userId=req.payload
+    try {
+        const response=await projects.find({userId})
+        res.status(200).json(response)
+
+    } catch (err) {
+        res.status(408).json(err)
+        
+    }
+}
