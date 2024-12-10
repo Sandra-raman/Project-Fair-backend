@@ -44,8 +44,10 @@ exports.getAllProjectAPI=async(req,res)=>{
 }
 exports.getUserProjectAPI=async(req,res)=>{
     const userId=req.payload
+    // console.log(`userid=${userId}`);
+    
     try {
-        const response=await projects.find({userId})
+        const response =await projects.find({userId})
         res.status(200).json(response)
 
     } catch (err) {
